@@ -1,24 +1,29 @@
 package library;
 
+import java.time.LocalDate;
+
+/* creo una classe astratta Catalogue (genitore) che avrà in comune le proprietà
+    e i metodi con le classi figlie (Books e Magazines) */
+
 public class Catalogue {
 
-    private static int nextISBN = 1;
+    private static Integer nextISBN = 1;
     private Integer ISBN;
     private String title;
-    private Integer publicationYear;
+    private LocalDate publicationYear;
     private int pages;
 
     @Override
     public String toString() {
-        return "Catalogo{" +
+        return "Catalogue{" +
                 "ISBN=" + ISBN +
-                ", titolo ='" + title + '\'' +
-                ", anno di pubblicazione =" + publicationYear +
-                ", numero di pagine =" + pages +
+                ", title ='" + title + '\'' +
+                ", publication year =" + publicationYear +
+                ", pages =" + pages +
                 '}';
     }
 
-    public Catalogue(String title, int publicationYear, int pages) {
+    public Catalogue(String title, LocalDate publicationYear, int pages) {
         this.ISBN = nextISBN;
         nextISBN ++;
         this.title = title;
@@ -26,7 +31,7 @@ public class Catalogue {
         this.pages = pages;
     }
 
-    public static int getNextISBN() {
+    public static Integer getNextISBN() {
         return nextISBN;
     }
 
@@ -50,11 +55,11 @@ public class Catalogue {
         this.title = title;
     }
 
-    public Integer getPublicationYear() {
+    public LocalDate getPublicationYear() {
         return publicationYear;
     }
 
-    public void setPublicationYear(int publicationYear) {
+    public void setPublicationYear(LocalDate publicationYear) {
         this.publicationYear = publicationYear;
     }
 
